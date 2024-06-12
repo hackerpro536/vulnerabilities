@@ -14,7 +14,6 @@
             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
             <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
         </ul>
-        <div class="header__cart__price">item: <span>$150.00</span></div>
     </div>
     <div class="humberger__menu__widget">
         <div class="header__top__right__language">
@@ -48,7 +47,7 @@
     <div class="humberger__menu__contact">
         <ul>
             <li><i class="fa fa-envelope"></i>sales@lptech.asia</li>
-            <li>Free Shipping for all Order of $99</li>
+            <li>Workshop - FPT Jetking | Demo Vulnerabilities Website</li>
         </ul>
     </div>
 </div>
@@ -63,7 +62,7 @@
                     <div class="header__top__left">
                         <ul>
                             <li><i class="fa fa-envelope"></i>sales@lptech.asia</li>
-                            <li>Free Shipping for all Order of $99</li>
+                            <li>Workshop - FPT Jetking | Demo Vulnerabilities Website</li>
                         </ul>
                     </div>
                 </div>
@@ -115,7 +114,6 @@
                         <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                         <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                     </ul>
-                    <div class="header__cart__price">item: <span>$150.00</span></div>
                 </div>
             </div>
         </div>
