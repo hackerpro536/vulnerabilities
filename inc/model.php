@@ -7,9 +7,13 @@ class Model extends DB {
     }
 
 
-    public function getAllProduct()
+    public function getAllProduct($limit = null)
     {
         $sql = "SELECT * FROM product";
+        if($limit)
+        {
+            $sql .= " LIMIT {$limit}";
+        }
         $products = $this->query($sql);
         return $products;
     }

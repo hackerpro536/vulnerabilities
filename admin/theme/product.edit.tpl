@@ -90,6 +90,10 @@
                                         <input type="text" class="form-control" value="<?=$item['price']?>" name="price">
                                     </div>
                                     <div class="form-group mb-3">
+                                        <label>Intro</label>
+                                        <textarea class="form-control" rows="3" name="intro"><?=$item['intro']?></textarea>
+                                    </div>
+                                    <div class="form-group mb-3">
                                         <label>Detail</label>
                                         <textarea class="form-control" rows="3" name="content"><?=$item['content']?></textarea>
                                     </div>
