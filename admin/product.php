@@ -12,24 +12,25 @@ if(isset($_GET['edit'])) {
 }
 
 if(isset($_GET['save'])) {
-    $target_dir = dirname(__FILE__, 2) ."/uploads/";
-    $base_name = basename($_FILES["images"]["name"]);
-    $target_file = $target_dir . $base_name;
-    $data = $_POST;
-    
-    if (move_uploaded_file($_FILES["images"]["tmp_name"], $target_file)) {
-        $filename = "uploads/". $base_name;
-        $data['images'] = $filename;
-    } else {
-        echo "Sorry, there  was an error uploading your file.";
-
+    if($_FILES)
+    {
+        $target_dir = dirname(__FILE__, 2) ."/uploads/";
+        $base_name = basename($_FILES["images"]["name"]);
+        $target_file = $target_dir . $base_name;
+        $data = $_POST;
+        
+        if (@move_uploaded_file($_FILES["images"]["tmp_name"], $target_file)) {
+            $filename = "uploads/". $base_name;
+            $data['images'] = $filename;
+        }
     }
+    
     $id = $data['id'];
     unset($data['id']);
     $sql = "UPDATE product SET ";
 
     foreach ($data as $key => $value) {
-        $sql.="{$key} = '{$value}',";
+        $sql.="{$key} = '{$model->input($value)}',";
     }
     $sql = trim($sql, ',');
     $sql .= " WHERE id=$id";

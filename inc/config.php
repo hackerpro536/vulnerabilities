@@ -3,7 +3,12 @@ class DB {
     public $mysqli;
     public function __construct()
     {
-        $mysqli = new mysqli("localhost","root","root","hacking");
+        $host = 'localhost';
+        $db_name = 'hacking';
+        $db_user = 'root';
+        $db_pass = 'root';
+
+        $mysqli = new mysqli($host,$db_user,$db_pass,$db_name);
 
         // Check connection
         if ($mysqli -> connect_errno) {
@@ -33,7 +38,7 @@ class DB {
         return $result;
     }
 
-    protected function input($input)
+    public function input($input)
     {
         if(users('debug') == false)
         { 
