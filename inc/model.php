@@ -45,5 +45,14 @@ class Model extends DB {
             return false;
         }
     }
+
+
+    public function searchProduct($keyword = '')
+    {
+        $keyword = str_replace("'",'',strip_tags($keyword));
+        $sql = "SELECT * FROM product WHERE title like '%{$keyword}%'";
+        $data = $this->query($sql);
+        return $data;
+    }
     
 }
