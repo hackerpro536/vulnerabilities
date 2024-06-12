@@ -26,9 +26,8 @@ class Model extends DB {
 
     public function loginAdmin($username, $password)
     {
-        // $username = mysqli_real_escape_string($this->mysqli, $username); <= validate input
-        $password = md5(mysqli_real_escape_string($this->mysqli, $password)); 
-
+        $username = $this->input($username);
+        $password = md5($this->input($password));
         $sql = "SELECT * FROM users WHERE username = '$username' and password = '$password' and status = 1";
         // $sql = "SELECT * FROM users WHERE username = {$username} and password = {$password} and status = 1"; <= fixed query
 
@@ -49,10 +48,24 @@ class Model extends DB {
 
     public function searchProduct($keyword = '')
     {
-        $keyword = str_replace("'",'',strip_tags($keyword));
+        $keyword = $this->input(str_replace("'",'',strip_tags($keyword)));
         $sql = "SELECT * FROM product WHERE title like '%{$keyword}%'";
         $data = $this->query($sql);
         return $data;
+    }
+
+
+    public function editUser($data, $id)
+    {
+        $sql = "UPDATE users SET ";
+
+        foreach ($data as $key => $value) {
+            $sql.="{$key} = '{$this->input($value)}',";
+        }
+        $sql = trim($sql, ',');
+        $sql .= " WHERE id={$this->input($id)}";
+        $edit = $this->rawQuery($sql);
+        return $edit;
     }
     
 }

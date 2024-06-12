@@ -13,6 +13,14 @@ class DB {
         $this->mysqli = $mysqli;
     }
 
+    protected function sqlEror()
+    {
+        if(users('debug'))
+        {
+            die( '<pre>' . ((is_object($this->mysqli)) ? mysqli_error($this->mysqli) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . '</pre>' );
+        }
+    }
+
     public function __destruct()
     {
         $this->mysqli->close();
@@ -21,14 +29,22 @@ class DB {
     public function rawQuery($sql)
     {
         // Associative array
-        $result = mysqli_query($this->mysqli,  $sql ) or die( '<pre>' . ((is_object($this->mysqli)) ? mysqli_error($this->mysqli) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . '</pre>' );
+        $result = mysqli_query($this->mysqli,  $sql ) or $this->sqlEror();
         return $result;
+    }
+
+    protected function input($input)
+    {
+        if(users('debug') == false)
+        { 
+            $input = mysqli_real_escape_string($this->mysqli,  $input );
+        }
+        return $input;
     }
 
     public function query($sql)
     {
-        // Associative array
-        $result = mysqli_query($this->mysqli,  $sql ) or die( '<pre>' . ((is_object($this->mysqli)) ? mysqli_error($this->mysqli) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . '</pre>' );
+        $result = mysqli_query($this->mysqli,  $sql ) or $this->sqlEror();
         if ($result)
         {
             $row = $result->fetch_all(MYSQLI_ASSOC);
