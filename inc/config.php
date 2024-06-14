@@ -3,12 +3,8 @@ class DB {
     public $mysqli;
     public function __construct()
     {
-        $host = 'localhost';
-        $db_name = 'hacking';
-        $db_user = 'root';
-        $db_pass = 'root';
 
-        $mysqli = new mysqli($host,$db_user,$db_pass,$db_name);
+        $mysqli = new mysqli(HOSTNAME,USER_NAME,DB_PASSWORD,DB_NAME);
 
         // Check connection
         if ($mysqli -> connect_errno) {

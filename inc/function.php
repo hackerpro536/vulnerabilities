@@ -5,6 +5,15 @@ define('DS', DIRECTORY_SEPARATOR);
 // Define root path folder
 define('ROOT_PATH', dirname(__FILE__,2) . DS);
 require_once 'constants.php';
+define('BASE_URL', $base_url);
+define('THEME_URL', $theme_url);
+define('ADMIN_URL', $admin_url);
+define('ADMIN_THEME_URL', $admin_theme_url);
+define('HOSTNAME', $host);
+define('DB_NAME', $db_name);
+define('USER_NAME', $db_user);
+define('DB_PASSWORD', $db_pass);
+
 $_SESSION['debug'] = $debug;
 if(users('debug') == false)
 {

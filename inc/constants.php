@@ -2,7 +2,11 @@
 $stop = false;
 $debug = true;
 $uploadType = ".png,.jpg,.jpeg";
-define('BASE_URL', 'http://localhost/hacking/');
-define('THEME_URL', 'http://localhost/hacking/theme/');
-define('ADMIN_URL', 'http://localhost/hacking/admin/');
-define('ADMIN_THEME_URL', 'http://localhost/hacking/admin/theme/');
+$base_url = 'http://localhost/hacking/';
+$theme_url = 'http://localhost/hacking/theme/';
+$admin_url =  'http://localhost/hacking/admin/';
+$admin_theme_url =  'http://localhost/hacking/admin/theme/';
+$host = 'localhost';
+$db_name = 'hacking';
+$db_user = 'root';
+$db_pass = 'root';
