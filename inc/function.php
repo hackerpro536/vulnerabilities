@@ -1,11 +1,22 @@
 <?php
 session_start();
+// Define DIRECTORY_SEPARATOR constant
+define('DS', DIRECTORY_SEPARATOR);
+// Define root path folder
+define('ROOT_PATH', dirname(__FILE__,2) . DS);
 require_once 'constants.php';
 $_SESSION['debug'] = $debug;
 if(users('debug') == false)
 {
     error_reporting(0);
 }
+
+if($stop)
+{
+    include ROOT_PATH .'theme/shutdown.tpl';  
+    die;
+}
+
 function ddd($var)
 {
     echo "<pre>";
@@ -62,6 +73,6 @@ function logOut()
 
 function error404()
 {
-    include 'theme/404.tpl';  
+    include ROOT_PATH. 'theme/404.tpl';  
     die;
 }
